@@ -16,7 +16,8 @@ public class App {
             System.out.print("사칙연산 기호를 입력하세요: ");
             char op = sc.next().charAt(0);
 
-            int result = calc.calculate(lhs, rhs, op);
+            calc.calculate(lhs, rhs, op);
+            int result = calc.getResult();
             if (result != -1) { // 연산이 정상적으로 수행되었을 때만 결과 출력
                 System.out.println("결과: " + result);
             }
