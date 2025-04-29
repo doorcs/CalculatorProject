@@ -42,12 +42,19 @@ public class Calculator {
         return results.get(n);
     }
 
-    // 현재 단계에서는 Setter 메서드를 활용할 방법이 떠오르지 않습니다. 데이터 삭제 메서드를 구현한 뒤, main 메서드를 변경할 때 사용해보도록 하겠습니다.
     public void setNth(int n, int val) {
         if (n < 0 || n >= results.size()) {
             System.out.println("잘못된 인덱스입니다.");
             return;
         }
         results.set(n, val);
+    }
+
+    public void removeResult() {
+        if (!results.isEmpty()) {
+            results.remove(0); // 저장된 연산 결과들 중 가장 먼저 저장된 데이터를 삭제
+        } else {
+            System.out.println("삭제할 결과가 없습니다.");
+        }
     }
 }
