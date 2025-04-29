@@ -29,14 +29,16 @@ public class App {
                 case 2:
                     System.out.print("변경하려는 인덱스를 입력하세요: ");
                     int pos = sc.nextInt();
+                    if (calc.getNth(pos) == -1) break; // 인덱스 유효성을 먼저 검사
                     System.out.print("변경할 값을 입력하세요: ");
                     int val = sc.nextInt();
 
-                    calc.setNth(pos, val);
+                    if (calc.setNth(pos, val) == -1) break;
+                    System.out.println("수정 성공");
                     break;
                 case 3:
-                    calc.removeResult();
-                    System.out.println();
+                    if (calc.removeResult() == -1) break;
+                    System.out.println("삭제 성공");
                     break;
                 default:
                     System.out.println("올바른 연산 번호 (1, 2, 3)를 입력해주세요.");
