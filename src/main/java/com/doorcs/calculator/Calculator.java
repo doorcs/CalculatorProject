@@ -42,19 +42,22 @@ public class Calculator {
         return results.get(n);
     }
 
-    public void setNth(int n, int val) {
+    public int setNth(int n, int val) {
         if (n < 0 || n >= results.size()) {
             System.out.println("잘못된 인덱스입니다.");
-            return;
+            return -1;
         }
         results.set(n, val);
+        return 0;
     }
 
-    public void removeResult() {
-        if (!results.isEmpty()) {
-            results.remove(0); // 저장된 연산 결과들 중 가장 먼저 저장된 데이터를 삭제
-        } else {
+    public int removeResult() {
+        if (results.isEmpty()) {
             System.out.println("삭제할 결과가 없습니다.");
+            return -1;
         }
+
+        results.remove(0); // 저장된 연산 결과들 중 가장 먼저 저장된 데이터를 삭제
+        return 0;
     }
 }
