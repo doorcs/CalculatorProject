@@ -14,7 +14,7 @@ public class ClasslessCalculator {
         System.out.print("사칙연산 기호를 입력하세요: ");
         char op = sc.next().charAt(0); // 연산자
 
-        int result = 0; // 결과
+        int result; // 결과
         switch (op) {
             case '+':
                 result = lhs + rhs;
