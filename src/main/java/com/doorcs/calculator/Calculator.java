@@ -55,12 +55,8 @@ public class Calculator {
     }
 
     public List<Integer> getResultsGreaterThan(int val) {
-        List<Integer> ret = new ArrayList<>();
-        for (int result : results) {
-            if (result > val) {
-                ret.add(result);
-            }
-        }
-        return ret;
+        return results.stream()
+            .filter(elem -> elem > val)
+            .toList();
     }
 }
