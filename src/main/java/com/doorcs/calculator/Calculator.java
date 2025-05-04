@@ -9,24 +9,17 @@ public class Calculator {
 
     public void calculate(int lhs, int rhs, char op) {
         switch (op) {
-            case '+':
-                results.add(lhs + rhs);
-                break; // fallthrough 방지!
-            case '-':
-                results.add(lhs - rhs);
-                break;
-            case '*':
-                results.add(lhs * rhs);
-                break;
-            case '/':
+            case '+' -> results.add(lhs + rhs);
+            case '-' -> results.add(lhs - rhs);
+            case '*' -> results.add(lhs * rhs);
+            case '/' -> {
                 if (rhs == 0) {
                     System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-                    break;
+                    return;
                 }
                 results.add(lhs / rhs);
-                break;
-            default:
-                System.out.println("올바른 사칙연산 기호 (+, -, *, /)를 입력해주세요.");
+            }
+            default -> System.out.println("올바른 사칙연산 기호 (+, -, *, /)를 입력해주세요.");
         }
     }
 
