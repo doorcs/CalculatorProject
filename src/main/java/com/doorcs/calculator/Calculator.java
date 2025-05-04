@@ -7,20 +7,10 @@ public class Calculator {
 
     private final List<Integer> results = new ArrayList<>();
 
-    public void calculate(int lhs, int rhs, char op) {
-        switch (op) {
-            case '+' -> results.add(lhs + rhs);
-            case '-' -> results.add(lhs - rhs);
-            case '*' -> results.add(lhs * rhs);
-            case '/' -> {
-                if (rhs == 0) {
-                    System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
-                    return;
-                }
-                results.add(lhs / rhs);
-            }
-            default -> System.out.println("올바른 사칙연산 기호 (+, -, *, /)를 입력해주세요.");
-        }
+    public void calculate(int lhs, int rhs, char op) throws IllegalArgumentException {
+        OperatorType operator = OperatorType.fromSymbol(op);
+        int result = operator.apply(lhs, rhs); // 예외는 main() 메서드에서 처리함!
+        results.add(result);
     }
 
     public int getResult() {
@@ -52,5 +42,11 @@ public class Calculator {
 
         results.remove(0); // 저장된 연산 결과들 중 가장 먼저 저장된 데이터를 삭제
         return 0;
+    }
+
+    public List<Integer> getResultsGreaterThan(int val) {
+        return results.stream()
+            .filter(elem -> elem > val)
+            .toList();
     }
 }
