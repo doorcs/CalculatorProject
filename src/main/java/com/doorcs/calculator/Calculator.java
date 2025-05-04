@@ -53,4 +53,14 @@ public class Calculator {
         results.remove(0); // 저장된 연산 결과들 중 가장 먼저 저장된 데이터를 삭제
         return 0;
     }
+
+    public List<Integer> getResultsGreaterThan(int val) {
+        List<Integer> ret = new ArrayList<>();
+        for (int result : results) {
+            if (result > val) {
+                ret.add(result);
+            }
+        }
+        return ret;
+    }
 }
