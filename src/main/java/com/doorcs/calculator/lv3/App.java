@@ -1,4 +1,4 @@
-package com.doorcs.calculator;
+package com.doorcs.calculator.lv3;
 
 import java.util.Scanner;
 
