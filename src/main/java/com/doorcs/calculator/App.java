@@ -19,7 +19,14 @@ public class App {
                     int rhs = sc.nextInt();
                     System.out.print("사칙연산 기호를 입력하세요: ");
                     char op = sc.next().charAt(0);
-                    calc.calculate(lhs, rhs, op);
+
+                    try {
+                        calc.calculate(lhs, rhs, op);
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                        break;
+                    }
+
                     int result = calc.getResult();
                     if (result != -1) {
                         System.out.println("결과: " + result);
